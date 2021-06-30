@@ -22,30 +22,49 @@ const App = () => {
 
     setMap(map)
 
-    return ()=>map.remove()
-  }, [latitude,longitude])
+    const addMarker = () => {
+      const element = document.createElement('div')
+      element.className = 'marker'
+
+      const marker = new tt.Marker({
+        draggable: true,
+        element: element,
+      })
+        .setLngLat([longitude, latitude])
+        .addTo(map)
+    }
+
+    addMarker()
+
+    return () => map.remove()
+
+  }, [latitude, longitude])
 
   return (
-    <div className="App">
-      <div ref={mapElement} className="map" />
-      <div className="search-bar">
-        <h1>Where to?</h1>
-        <input
-          type="text"
-          id="longitude"
-          className="longitude"
-          placeholder="Put the Longitude"
-          onChange={(e) => { setLongitude(e.target.value) }}
-        />
-        <input
-          type="text"
-          id="latitude"
-          className="latitude"
-          placeholder="Put the Latitude"
-          onChange={(e) => { setLatitude(e.target.value) }}
-        />
+    <>
+      {map && <div className="App">
+        <div ref={mapElement} className="map" />
+        <div className="search-bar">
+          <h1>Where to?</h1>
+          <input
+            type="text"
+            id="longitude"
+            className="longitude"
+            placeholder="Put the Longitude"
+            onChange={(e) => { setLongitude(e.target.value) }}
+          />
+          <input
+            type="text"
+            id="latitude"
+            className="latitude"
+            placeholder="Put the Latitude"
+            onChange={(e) => { setLatitude(e.target.value) }}
+          />
+        </div>
       </div>
-    </div>
+      }
+    </>
+
   )
 }
 
