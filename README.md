@@ -1,3 +1,16 @@
+## Preview The Project
+
+![TOM-TOM MAPS][product-screenshot]
+
+Simple map to calculate the distance from your current location to selected destinations
+
+[TomTomMaps](https://tomtom-maps-3563ug.vercel.app)
+
+### Built With
+
+-   [React JS](https://reactjs.org/)
+-   [TomTom](https://developer.tomtom.com/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +81,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+[product-screenshot]: 12.gif

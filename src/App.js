@@ -8,20 +8,20 @@ const App = () => {
   const mapElement = useRef()
   const [map, setMap] = useState({})
 
-  const [longitude, setLongitude] = useState(110.370529)
-  const [latitude, setLatitude] = useState(-7.797068)
+  const [longitude, setLongitude] = useState(110.1956257229761)
+  const [latitude, setLatitude] = useState(-7.518088504654986)
 
   const convertToPoints = (lngLat) => {
     return {
       point: {
-        latitude: lngLat.lng,
+        latitude: lngLat.lat,
         longitude: lngLat.lng
       }
     }
   }
 
-  const drawRoute=(geoJson)=>{
-    if(map.getLayer('route')){
+  const drawRoute = (geoJson,map) => {
+    if (map.getLayer('route')) {
       map.removeLayer('route')
       map.removeSource('route')
     }
@@ -33,8 +33,8 @@ const App = () => {
         data: geoJson
       },
       paint: {
-        'line-color':'red',
-        'line-width':6
+        'line-color': 'red',
+        'line-width': 6
       }
     })
   }
@@ -129,19 +129,19 @@ const App = () => {
       })
     }
 
-    const recalculateRoutes=()=>{
-      sortDestinations(destinations).then((sorted)=>{
+    const recalculateRoutes = () => {
+      sortDestinations(destinations).then((sorted) => {
         sorted.unshift(origin)
 
         ttapi.services
-        .calculateRoute({
-          key: process.env.REACT_APP_TOM_TOM_API_KEY,
-          locations: sorted,
-        })
-        .then((routeData)=>{
-          const geoJson = routeData.toGeoJson()
-          drawRoute(geoJson,map)
-        })
+          .calculateRoute({
+            key: process.env.REACT_APP_TOM_TOM_API_KEY,
+            locations: sorted,
+          })
+          .then((routeData) => {
+            const geoJson = routeData.toGeoJson()
+            drawRoute(geoJson, map)
+          })
       })
     }
 
@@ -158,7 +158,7 @@ const App = () => {
   return (
     <>
       {map && (
-        <div className="App">
+        <div className="app">
           <div ref={mapElement} className="map" />
           <div className="search-bar">
             <h1>Mau kemana?</h1>
@@ -169,6 +169,7 @@ const App = () => {
               placeholder="Put the Longitude"
               onChange={(e) => { setLongitude(e.target.value) }}
             />
+            &nbsp;
             <input
               type="text"
               id="latitude"

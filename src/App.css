@@ -1,14 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
 .body {
   display: flex;
   justify-content: center;
 }
 
 .app {
-  height: 500px;
+  height: 600px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.app input {
+  font-family: 'Poppins', sans-serif;
+  border-radius: 15px;
+  border: 1px solid rgb(15, 107, 92);
+  font-style: italic;
+  cursor: pointer;
+  padding: 2;
+  outline: none;
 }
 
 .map {
-  height: 500px;
+  height: 700px;
 }
 
 .marker {
@@ -22,7 +35,7 @@
 }
 
 .marker-delivery {
-  background-color: royalblue;
+  background-color: rgb(225, 65, 65);
   width: 22px;
   height: 22px;
 }
