@@ -4,7 +4,7 @@
 
 Simple map to calculate the distance from your current location to selected destinations
 
-[TomTomMaps](https://tomtom-maps-3563ug.vercel.app)
+[TomTomMaps](https://tomtom-maps.vercel.app)
 
 ### Built With
 
